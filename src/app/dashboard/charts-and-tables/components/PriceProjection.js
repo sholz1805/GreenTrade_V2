@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Chart from "react-apexcharts";
+import { useRouter } from "next/navigation";
 
 const projectionData = [
   { max: 790, avg: 611, min: 515 },    
@@ -79,6 +80,8 @@ const PriceProjectionGraph = () => {
   const [chartData, setChartData] = useState(null);
   const [modifiedData, setModifiedData] = useState([]);
   const [loading, setLoading] = useState(true);
+
+  const router = useRouter();
 
   useEffect(() => {
     const processData = (data) => {
@@ -201,6 +204,18 @@ const PriceProjectionGraph = () => {
   }, [modifiedData]);
 
   return (
+    <>
+    <div className="p-2 flex justify-between items-center">
+    <p className="text-sm font-semibold">Price Projection</p>
+    <button
+      onClick={() => router.push("/dashboard/charts-and-tables")}
+      className="px-4 py-2 bg-green-900 text-white text-xs rounded hover:bg-green-700"
+    >
+      Back
+    </button>
+    
+   
+  </div>
     <div className="p-4 bg-white mt-6 rounded-lg shadow-sm border">
       <h2 className="text-lg font-semibold mb-4">Commodity Price Projections</h2>
       {loading ? (
@@ -218,6 +233,7 @@ const PriceProjectionGraph = () => {
         )
       )}
     </div>
+    </>
   );
 };
 

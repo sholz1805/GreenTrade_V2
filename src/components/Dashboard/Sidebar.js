@@ -108,18 +108,19 @@ const Sidebar = ({ isOpen, toggleSidebar, onLogout }) => {
               </ul>
             )}
           </li>
+
           <li>
             <Link
-              href="/dashboard/charts"
+              href="/dashboard/charts-and-tables"
               className={`flex items-center text-sm p-3 rounded ${
-                isActive("/dashboard/charts")
+                isActive("/dashboard/charts-and-tables")
                   ? "bg-green-700 text-white"
                   : "hover:bg-green-50 hover:text-green-900"
               }`}
               onClick={toggleSidebar}
             >
               <IoPieChartOutline size={20} className="mr-3" />
-              Charts and Tables
+              Charts & Tables
             </Link>
           </li>
           <li>
@@ -152,16 +153,16 @@ const Sidebar = ({ isOpen, toggleSidebar, onLogout }) => {
           </li>
           <li>
             <Link
-              href="/dashboard/transaction-analysis"
+              href="/dashboard/investment-analysis"
               className={`flex items-center text-sm p-3 rounded ${
-                isActive("/dashboard/transaction-analysis")
+                isActive("/dashboard/investment-analysis")
                   ? "bg-green-700 text-white"
                   : "hover:bg-green-50 hover:text-green-900"
               }`}
               onClick={toggleSidebar}
             >
               <IoAnalytics size={20} className="mr-3" />
-              Transaction Analysis
+              Investment Analysis
             </Link>
           </li>
         </ul>
@@ -180,7 +181,7 @@ const Sidebar = ({ isOpen, toggleSidebar, onLogout }) => {
               <p className="text-sm font-medium text-green-900">Shola Azeez</p>
               <p className="text-xs text-gray-500">sholz@greentrade.com</p>
             </div>
-            
+
             <button
               className="ml-auto p-2 hover:bg-green-50 rounded-full transition-colors"
               onClick={onLogout}
